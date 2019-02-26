@@ -1,0 +1,10 @@
+sudo: required
+services: 
+  - docker
+
+before_install:
+  - docker build -t akiraspeirs/docker-react -f Dockerfile.dev .
+  
+script:
+  - docker run akiraspeirs/docker-react npm run test -- --coverage
+  
